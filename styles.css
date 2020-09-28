@@ -1,0 +1,103 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-bg-color: #422261;
+  --face: #422261;
+}
+
+body {
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--main-bg-color);
+}
+
+.face {
+  width: 75px;
+  height: 30px;
+  background-color: var(--face);
+  position: relative;
+  left: 60px;
+  bottom: 40px;
+  transform: rotate(10deg);
+  z-index: 1;
+  border-radius: 100% 0% 50% 50% / 0% 0% 100% 100%;
+}
+
+.face::after {
+  content: '';
+  position: absolute;
+  background-color: var(--face);
+  top: -25px;
+  left: 120px;
+  width: 75px;
+  height: 30px;
+  transform: rotate(-20deg);
+  border-radius: 100% 0% 50% 50% / 0% 0% 100% 100%;
+}
+
+.face::before {
+  content: '';
+  position: absolute;
+  top: 75px;
+  left: 15px;
+  background-color: var(--face);
+  transform: rotate(-10deg);
+  width: 200px;
+  height: 50px;
+  clip-path: polygon(0% 35%, 17% 2%, 21% 37%, 31% 17%, 36% 32%, 49% 6%, 63% 34%, 86% 8%, 85% 30%, 100% 30%, 94% 60%, 79% 98%, 66% 62%, 63% 94%, 53% 76%, 42% 100%, 31% 62%, 17% 96%, 14% 66%);
+  
+  animation-name: pulse;
+  animation-delay: 1s;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  
+}
+
+@keyframes pulse {
+  0% {transform: scale(1) rotate(-10deg);}
+  50% {transform: scale(1.1) rotate(-10deg);}
+  100% {transform: scale(1) rotate(-10deg);}
+}
+
+.stem {
+  position: relative;
+  bottom: 180px;
+  background-color: #8cc63e;
+  left: 200px;
+  z-index: -1;
+  width: 75px;
+  height: 150px;
+  transform: rotate(30deg);
+  border-radius: 58% 42% 69% 31% / 44% 100% 0% 56% ;
+}
+
+.stem::before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 50px;
+  width: 100px;
+  height: 100px;
+  background-color: var(--main-bg-color);
+  clip-path: circle(50% at 50% 50%);
+}
+
+.pumpkin {
+  position: relative;
+  height: 300px;
+  width: 170px;
+  background-color: #f8931f;
+  border-radius: 28% 72% 33% 67% / 21% 83% 17% 79% ;
+  transform: rotate(13deg);
+  box-shadow:
+    40px -15px 0px  0px #f87700, /*4*/
+    -40px 4px 0px -1px #fbb03b, /*2*/
+    80px -35px 0px -2px #f8931f, /*5*/
+    -80px 5px 0px -2px #f8931f; /*1*/
+}
